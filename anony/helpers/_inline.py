@@ -131,6 +131,7 @@ class Inline:
                 ],
             ]
         )
+
     def start_key(
         self, lang: dict, private: bool = False
     ) -> types.InlineKeyboardMarkup:
@@ -151,15 +152,14 @@ class Inline:
             rows += [
                 [
                     self.ikb(
-                        text=lang["owner"],
-                        url="https://t.me/light_speedy",
+                        text=lang["source"],
+                        url="https://github.com/AnonymousX1025/AnonXMusic",
                     )
                 ]
             ]
         else:
             rows += [[self.ikb(text=lang["language"], callback_data="language")]]
         return self.ikm(rows)
-    
 
     def yt_key(self, link: str) -> types.InlineKeyboardMarkup:
         return self.ikm(
