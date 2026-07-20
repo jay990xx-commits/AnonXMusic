@@ -140,9 +140,12 @@ class Inline:
                 self.ikb(
                     text=lang["add_me"],
                     url=f"https://t.me/{app.username}?startgroup=true",
+                    style=ButtonStyle.PRIMARY,
                 )
             ],
-            [self.ikb(text=lang["help"], callback_data="help")],
+            [
+                self.ikb(text=lang["help"], callback_data="help"),
+            ],
             [
                 self.ikb(text=lang["support"], url=config.SUPPORT_CHAT),
                 self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL),
@@ -152,13 +155,12 @@ class Inline:
             rows += [
                 [
                     self.ikb(
-                        text=lang["source"],
-                        url="https://github.com/AnonymousX1025/AnonXMusic",
+                        text=lang["owner"],
+                        url="https://t.me/light_speedy",
+                        style=ButtonStyle.DANGER,
                     )
                 ]
             ]
-        else:
-            rows += [[self.ikb(text=lang["language"], callback_data="language")]]
         return self.ikm(rows)
 
     def yt_key(self, link: str) -> types.InlineKeyboardMarkup:
