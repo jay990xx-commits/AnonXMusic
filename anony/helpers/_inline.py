@@ -89,7 +89,8 @@ class Inline:
             [
                 [
                     self.ikb(
-                        text=_text, callback_data=f"controls force {chat_id} {item_id}", style=ButtonStyle.DANGER),
+                        text=_text, callback_data=f"controls force {chat_id} {item_id}"
+                    )
                 ]
             ]
         )
@@ -99,7 +100,7 @@ class Inline:
     ) -> types.InlineKeyboardMarkup:
         _action = "pause" if playing else "resume"
         return self.ikm(
-            [[self.ikb(text=_text, callback_data=f"controls {_action} {chat_id} q", style=ButtonStyle.SUCCESS)]]
+            [[self.ikb(text=_text, callback_data=f"controls {_action} {chat_id} q")]]
         )
 
     def settings_markup(
@@ -111,7 +112,6 @@ class Inline:
                     self.ikb(
                         text=lang["play_mode"] + " ➜",
                         callback_data="settings",
-                        style=ButtonStyle.PRIMARY,
                     ),
                     self.ikb(text=admin_only, callback_data="settings play"),
                 ],
@@ -131,7 +131,6 @@ class Inline:
                 ],
             ]
         )
-
     def start_key(
         self, lang: dict, private: bool = False
     ) -> types.InlineKeyboardMarkup:
@@ -162,6 +161,7 @@ class Inline:
         else:
             rows += [[self.ikb(text=lang["language"], callback_data="language")]]
         return self.ikm(rows)
+    
 
     def yt_key(self, link: str) -> types.InlineKeyboardMarkup:
         return self.ikm(
