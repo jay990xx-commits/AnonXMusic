@@ -139,7 +139,6 @@ class Inline:
                 self.ikb(
                     text=lang["add_me"],
                     url=f"https://t.me/{app.username}?startgroup=true",
-                    style=ButtonStyle.PRIMARY,
                 )
             ],
             [self.ikb(text=lang["help"], callback_data="help")],
@@ -154,7 +153,6 @@ class Inline:
                     self.ikb(
                         text=lang["owner"],
                         url="https://t.me/light_speedy",
-                        style=ButtonStyle.DANGER,
                     )
                 ]
             ]
