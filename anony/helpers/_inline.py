@@ -89,8 +89,7 @@ class Inline:
             [
                 [
                     self.ikb(
-                        text=_text, callback_data=f"controls force {chat_id} {item_id}"
-                    )
+                        text=_text, callback_data=f"controls force {chat_id} {item_id}", style=ButtonStyle.DANGER),
                 ]
             ]
         )
@@ -100,7 +99,7 @@ class Inline:
     ) -> types.InlineKeyboardMarkup:
         _action = "pause" if playing else "resume"
         return self.ikm(
-            [[self.ikb(text=_text, callback_data=f"controls {_action} {chat_id} q")]]
+            [[self.ikb(text=_text, callback_data=f"controls {_action} {chat_id} q", style=ButtonStyle.SUCCESS)]]
         )
 
     def settings_markup(
@@ -112,6 +111,7 @@ class Inline:
                     self.ikb(
                         text=lang["play_mode"] + " ➜",
                         callback_data="settings",
+                        style=ButtonStyle.PRIMARY,
                     ),
                     self.ikb(text=admin_only, callback_data="settings play"),
                 ],
@@ -140,6 +140,7 @@ class Inline:
                 self.ikb(
                     text=lang["add_me"],
                     url=f"https://t.me/{app.username}?startgroup=true",
+                    style=ButtonStyle.PRIMARY,
                 )
             ],
             [self.ikb(text=lang["help"], callback_data="help")],
@@ -152,8 +153,9 @@ class Inline:
             rows += [
                 [
                     self.ikb(
-                        text=lang["source"],
-                        url="https://github.com/AnonymousX1025/AnonXMusic",
+                        text=lang["owner"],
+                        url="https://t.me/light_speedy",
+                        style=ButtonStyle.DANGER,
                     )
                 ]
             ]
